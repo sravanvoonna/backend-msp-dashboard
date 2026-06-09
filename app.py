@@ -14,6 +14,8 @@ CORS(app)
 # Locate the DA.xlsx file next to the project root
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DATA_FILE = ROOT_DIR / "DA.xlsx"
+if not DATA_FILE.exists():
+    DATA_FILE = Path(__file__).resolve().parent / "DA.xlsx"
 
 # Load Excel file into a pandas DataFrame
 df = pd.read_excel(DATA_FILE)
